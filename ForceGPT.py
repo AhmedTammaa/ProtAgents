@@ -21,12 +21,12 @@ import transformers
 def ForceGPTmodel(model_name, device):
     
     model = AutoModelForCausalLM.from_pretrained(
-        model_name, 
+        pretrained_model_name_or_path="lamm-mit/ProteinForceGPT", 
         #quantization_config=bnb_config, 
         trust_remote_code=True
     )
     model.config.use_cache = False
-    tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True)
+    tokenizer = AutoTokenizer.from_pretrained(pretrained_model_name_or_path="lamm-mit/ProteinForceGPT", trust_remote_code=True)
     tokenizer.pad_token = tokenizer.eos_token
 
     return model.to(device), tokenizer

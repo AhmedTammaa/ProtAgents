@@ -145,8 +145,7 @@ reviewer = autogen.AssistantAgent(
 assistant = autogen.AssistantAgent(
     name="assistant",
     #instructions="You collect information from experts, fold proteins, and carry out other simulations. Reply TERMINATE when the task is done.",
-    
-        system_message="assistant. You have access to all the custom functions. You focus on executing the functions suggested by the planner or the critic. You also have the ability to prepare the required input parameters for the functions.\
+    system_message="assistant. You have access to all the custom functions. You focus on executing the functions suggested by the planner or the critic. You also have the ability to prepare the required input parameters for the functions.",
     llm_config=llm_config,
     function_map={
         

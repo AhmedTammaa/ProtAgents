@@ -7,7 +7,7 @@ import openai
 import os
 import autogen
 
-OpenAI_key='####'
+OpenAI_key=os.environ["OPENAI_API_KEY"]
 
 ######### OPENAI ###########
 os.environ['OPENAI_API_KEY']=OpenAI_key

@@ -35,15 +35,17 @@ import re
 import requests, sys
 
 import subprocess
-
-from llama_index import StorageContext, load_index_from_storage
+from llama_index.core import (
+    load_index_from_storage
+    )
+from llama_index.core.storage.storage_context import StorageContext
 ##########################################################################################################
 storage_context = StorageContext.from_defaults(persist_dir="protein_force_index")
 new_index = load_index_from_storage(storage_context)
 query_engine = new_index.as_query_engine(similarity_top_k=20)
 
 # Path to Autoregressive transformer model, ForceGPT
-model_path = '###'
+model_path = '"lamm-mit/ProteinForceGPT"'
 
 from ForceGPT import ForceGPTmodel
 model, tokenizer = ForceGPTmodel(model_name=model_path, device=device)
